@@ -33,7 +33,9 @@ const badgeEstilos: Record<Nivel, string> = {
 
 function formatarData(iso: string | null) {
   if (!iso) return '—'
-  return new Date(iso + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
+  const d = new Date(iso)
+  if (isNaN(d.getTime())) return '—'
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', timeZone: 'UTC' })
 }
 
 function textoDias(dias: number | null) {

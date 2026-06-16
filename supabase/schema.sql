@@ -70,7 +70,7 @@ select
   a.observacoes as observacoes_atual,
   l.data_limpeza as ultima_limpeza,
   -- Data limite para proxima limpeza
-  coalesce(l.data_limpeza, a.data_entrada) + b.prazo_max_dias_sem_limpeza * interval '1 day' as data_limite_limpeza,
+  (coalesce(l.data_limpeza, a.data_entrada) + b.prazo_max_dias_sem_limpeza * interval '1 day')::date as data_limite_limpeza,
   -- Dias restantes ate o prazo
   extract(day from (
     coalesce(l.data_limpeza, a.data_entrada) + b.prazo_max_dias_sem_limpeza * interval '1 day'
@@ -98,4 +98,5 @@ insert into categorias (nome) values
   ('Touro Mecanico'),
   ('Escorregador'),
   ('Cama Elastica'),
-  ('Outros');
+  ('Outros')
+on conflict (nome) do nothing;
