@@ -97,7 +97,7 @@ export default function NovoBrinquedoPage() {
               </div>
             )}
           </div>
-          <input ref={inputFotoRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFoto} />
+          <input ref={inputFotoRef} type="file" accept="image/*" className="hidden" onChange={handleFoto} />
         </div>
 
         {/* Nome */}
