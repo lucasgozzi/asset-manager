@@ -98,5 +98,12 @@ insert into categorias (nome) values
   ('Touro Mecanico'),
   ('Escorregador'),
   ('Cama Elastica'),
+  ('Combos com Bolinhas'),
+  ('Kidplay'),
+  ('Toboga'),
+  ('Aquaticos'),
+  ('Pula Pula'),
+  ('Piscina de Bolinhas'),
+  ('Esportivos'),
   ('Outros')
 on conflict (nome) do nothing;
